@@ -8,6 +8,8 @@ void setup()
 {
     pinMode(LedPin, OUTPUT);
     pinMode(PIR, INPUT);
+
+    Serial.begin(9600);
 }
 
 void loop()
@@ -16,9 +18,12 @@ void loop()
     if (PIRstate)
     {
         digitalWrite(LedPin, HIGH);
+        Serial.println("Motion Detected");
     }
     else
     {
         digitalWrite(LedPin, LOW);
+        Serial.println("No Motion Detected");
     }
+    delay(500);
 }
